@@ -5,7 +5,7 @@
         <asp:ListView ID="GamesList"  
                 ItemType="GameStore.Models.Game" 
                 runat="server"
-                >
+                SelectMethod="GetGameDetails">
             
         <ItemTemplate>
             <div class="row">
