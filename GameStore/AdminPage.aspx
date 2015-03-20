@@ -6,8 +6,10 @@
         <Columns>
             <asp:TemplateField>
                 <ItemTemplate>
-                    <asp:Button ID="btnEdit" CssClass="btn btn-default" runat="server" Text="Edit Game"/>
-                    <asp:Button ID="btnDelete" CssClass="btn btn-default" runat="server" Text="Delete Game"/>
+                    <asp:Button ID="btnEdit" CssClass="btn btn-default" runat="server" Text="Edit Game" 
+                        CommandName="EditGame" CommandArgument="<%# Eval("GameID") %>"/>
+                    <asp:Button ID="btnDelete" CssClass="btn btn-default" runat="server" Text="Delete Game" 
+                        CommandName="DeleteGame" CommandArgument="<%# Eval("GameID") %>"/>
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
