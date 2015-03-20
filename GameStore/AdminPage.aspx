@@ -11,6 +11,11 @@
             <hr />
         <div class="col-md-6 form-vertical">
             <div class="form-group">
+                <p><asp:Label ID="lblGameID" runat="server" Text="Game ID"></asp:Label></p>
+                <asp:TextBox CssClass="form-control" ID="txtGameID" runat="server"></asp:TextBox>
+            </div>
+
+            <div class="form-group">
                 <p><asp:Label ID="lblTitle" runat="server" Text="Title"></asp:Label></p>
                 <asp:TextBox CssClass="form-control" ID="txtTitle" runat="server"></asp:TextBox>
             </div>
