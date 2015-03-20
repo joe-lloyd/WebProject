@@ -1,0 +1,57 @@
+--account table
+CREATE TABLE Games
+(
+GameID INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+Title NVARCHAR(50),
+Genre NVARCHAR(50),
+Description NVARCHAR(2000),
+Rating NVARCHAR(50),
+Price DECIMAL(5,2),
+ReleaseDate DATE
+)
+
+CREATE TABLE LineItems
+(
+LineItemID INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+GameID INT FOREIGN KEY REFERENCES Games(GameID),
+CartID INT FOREIGN KEY REFERENCES Carts(CartID),
+Quantity INT
+)
+
+CREATE TABLE Carts
+(
+CartID INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+UserID INT FOREIGN KEY REFERENCES Users(UserID),
+)
+
+CREATE TABLE Users
+(
+[UserID] [int] IDENTITY(1,1) PRIMARY KEY NOT NULL,
+[UserName] [nvarchar](15) NOT NULL,
+[Email] [nvarchar](70) NOT NULL,
+[usrPass] [nvarchar](100) NOT NULL,
+[IsAdmin] [bit] NULL
+)
+
+CREATE TABLE Images
+(
+ImageID INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+GameID INT FOREIGN KEY REFERENCES Games(GameID),
+Name NVARCHAR(70),
+Description NVARCHAR(70)
+)
+
+*****Stored Procedures******
+
+CREATE PROCEDURE spValidateUser
+	@UserName NVARCHAR(50),
+	@usrPassword NVARCHAR(50)
+AS
+BEGIN
+	SELECT * FROM dbo.Users
+	WHERE 
+		UserName = @UserName
+		AND
+		usrPassword = @usrPassword
+END
+

@@ -1,0 +1,16 @@
+General
+-AJAX Call
+-XML
+-Login
+-Display image related to the game
+
+
+Admin
+-Validate Form (Regex)
+-Add Image with game (Half Done, Image information added with FK)
+
+
+
+DONE
+-ADD GAME + IMAGE
+-POPULATE PAGE FROM DB
