@@ -22,6 +22,24 @@ namespace GameStore {
         protected global::System.Web.UI.HtmlControls.HtmlAnchor AdminNav;
         
         /// <summary>
+        /// LoginNav control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor LoginNav;
+        
+        /// <summary>
+        /// LogoutNav control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LogoutNav;
+        
+        /// <summary>
         /// MainContent control.
         /// </summary>
         /// <remarks>

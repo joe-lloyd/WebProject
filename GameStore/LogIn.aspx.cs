@@ -43,11 +43,16 @@ namespace GameStore
 
             if(isValid)
             {
-                lblLoginMessage.Text = "Login Sucessful";
+                //Not being called from DB need to interact with it in order for this to work
+                //Start here tomorrow
+                Session["User"] = txtUsrName.Text;
+                Session["Admin"] = user.IsAdmin.ToString();
+                Response.Write(Session["Admin"]);
+                //Response.Redirect("Default.aspx");
             }
             else
             {
-                lblLoginMessage.Text = "Username or Password Incorrect";
+                Response.Write("<script language=javascript>alert('Invalid Login');</script>");
             }
         }
 

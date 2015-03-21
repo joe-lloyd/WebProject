@@ -13,7 +13,6 @@ namespace GameStore
 {
     public partial class SiteMaster : MasterPage
     {
-        string user = "nonAdmin";
         private const string AntiXsrfTokenKey = "__AntiXsrfToken";
         private const string AntiXsrfUserNameKey = "__AntiXsrfUserName";
         private string _antiXsrfTokenValue;
@@ -71,15 +70,12 @@ namespace GameStore
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            user = "admin";
-
-            if(user == "admin")
+            AdminNav.Visible = false;
+            LogoutNav.Visible = false;
+            if(Session["User"] != null)
             {
-                AdminNav.Visible = true;
-            }
-            else
-            {
-                AdminNav.Visible = false;
+                LoginNav.Visible = false;
+                LogoutNav.Visible = true;
             }
         }
 
@@ -93,6 +89,12 @@ namespace GameStore
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
         {
             Context.GetOwinContext().Authentication.SignOut();
+        }
+
+        protected void LogoutNav_Click(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Response.Redirect("Login.aspx");
         }
     }
 

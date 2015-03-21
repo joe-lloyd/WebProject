@@ -14,6 +14,15 @@ namespace GameStore
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Admin"].ToString() == "False")
+            {
+                Response.Redirect("Default.aspx");
+            }
+
+            if (Session["User"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
             ImageUpload.Enabled = false;
             txtDescription.Enabled = false;
             txtPrice.Enabled = false;
