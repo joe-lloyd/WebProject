@@ -1,18 +1,17 @@
-﻿<%@ Page Title="Admin Panel" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AdminPage.aspx.cs" Inherits="GameStore.AdminPage" %>
+﻿<%@ Page Title="Admin Panel" MaintainScrollPositionOnPostback="true" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AdminPage.aspx.cs" Inherits="GameStore.AdminPage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h2>Admin Panel</h2>
     <hr />
     <asp:GridView ID="GridView1" runat="server" CssClass="table table-hover table-striped" SelectMethod="GetGameDetails">
     </asp:GridView>
-
     <div class="row">
         <h2>Add/Update/Delete Game</h2>
         <p>Choose An Option</p>
         <div class="form-group">
-            <asp:RadioButton GroupName="Admin" ID="rdoAdd" runat="server" Text="Add"/>
-            <asp:RadioButton GroupName="Admin" ID="rdoUpdate" runat="server" Text="Update"/>
-            <asp:RadioButton GroupName="Admin" ID="rdoDelete" runat="server" Text="Delete"/>
+            <asp:RadioButton GroupName="Admin" ID="rdoAdd" runat="server" AutoPostBack="True" Text="Add" OnCheckedChanged="rdoAdd_CheckedChanged"/>
+            <asp:RadioButton GroupName="Admin" ID="rdoUpdate" runat="server" AutoPostBack="True" Text="Update" OnCheckedChanged="rdoUpdate_CheckedChanged"/>
+            <asp:RadioButton GroupName="Admin" ID="rdoDelete" runat="server" AutoPostBack="True" Text="Delete" OnCheckedChanged="rdoDelete_CheckedChanged"/>
         </div>
             <hr />
         <div class="col-md-6 form-vertical">

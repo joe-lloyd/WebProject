@@ -14,7 +14,7 @@ namespace GameStore
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         public IQueryable<Game> GetGameDetails([QueryString("id")] int? ItemID)
@@ -88,6 +88,41 @@ namespace GameStore
 
             gameCxt.Images.Add(gameImg);
             gameCxt.SaveChanges();
+        }
+
+        protected void rdoDelete_CheckedChanged(object sender, EventArgs e)
+        {
+            ImageUpload.Enabled = false;
+            txtDescription.Enabled = false;
+            txtPrice.Enabled = false;
+            txtReleaseDate.Enabled = false;
+            txtTitle.Enabled = false;
+            cboGenre.Enabled = false;
+            cboRating.Enabled = false;
+        }
+
+        protected void rdoAdd_CheckedChanged(object sender, EventArgs e)
+        {
+            txtGameID.Enabled = false;
+            ImageUpload.Enabled = true;
+            txtDescription.Enabled = true;
+            txtPrice.Enabled = true;
+            txtReleaseDate.Enabled = true;
+            txtTitle.Enabled = true;
+            cboGenre.Enabled = true;
+            cboRating.Enabled = true;
+        }
+
+        protected void rdoUpdate_CheckedChanged(object sender, EventArgs e)
+        {
+            txtGameID.Enabled = true;
+            ImageUpload.Enabled = false;
+            txtDescription.Enabled = true;
+            txtPrice.Enabled = true;
+            txtReleaseDate.Enabled = true;
+            txtTitle.Enabled = true;
+            cboGenre.Enabled = true;
+            cboRating.Enabled = true;
         }
     }
 }
