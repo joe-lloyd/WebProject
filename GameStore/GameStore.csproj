@@ -273,6 +273,7 @@
     </Compile>
     <Compile Include="Models\Game.cs" />
     <Compile Include="Models\GameStoreContext.cs" />
+    <Compile Include="Models\GamesWithImages.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Image.cs" />
     <Compile Include="Models\User.cs" />

@@ -5,21 +5,21 @@
     </div>
     <div id="GameMenu" class="row" style="text-align: center">  
         <asp:ListView ID="GamesList"  
-                ItemType="GameStore.Models.Game"
+                ItemType="GameStore.Models.GamesWithImages"
                 runat="server"
-                SelectMethod="GetGames">
+                SelectMethod="JoinGamesImage">
                 <ItemTemplate>
                     <div class="col-md-3 col-sm-6 hero-feature">
                         <div class="thumbnail">
-                            <img src="http://downloads.info/wp-content/uploads/2013/04/World-of-Warcraft-Cataclysm.jpeg" alt=""/>
+                            <img src="~/GameImages/<%#:Item.currentImage.Name %>>" alt=""/>
                             <div class="caption">
-                                <a href="/GameDetails.aspx?id=<%#: Item.GameID %>">
+                                <a href="/GameDetails.aspx?id=<%#: Item.currentGame.GameID %>">
 
-                                <b><p><%#: Item.Title %></a></b></p>
+                                <b><p><%#: Item.currentGame.Title %></a></b></p>
                                     
-                                <p><b>Price: </b><%#:String.Format("{0:c}", Item.Price)%></p>
+                                <p><b>Price: </b><%#:String.Format("{0:c}", Item.currentGame.Price)%></p>
                                     <a href="#" class="btn btn-primary">Buy Now!</a> 
-                                    <a href="/GameDetails.aspx?id=<%#: Item.GameID %>" class="btn btn-default">More Info</a>
+                                    <a href="/GameDetails.aspx?id=<%#: Item.currentGame.GameID %>" class="btn btn-default">More Info</a>
                             </div>
                         </div>
                     </div>

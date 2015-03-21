@@ -26,5 +26,25 @@ namespace GameStore
             }
             return query;
         }
+
+        public static List<GamesWithImages> JoinGamesImage()
+        {
+            GameStoreContext cxt = new GameStoreContext();
+
+        //    List<Game> games = new List<Game>();
+        //    List<GameStore.Models.Image> images = new List<GameStore.Models.Image>();
+
+        //    var query = from game in games
+        //                join image in images on game.GameID equals image.GameID into gj
+        //                select new { games, Images = gj };
+
+        List<GamesWithImages> listOfGI = ( from game in cxt.Games
+                        join image in cxt.Images on game.GameID equals image.GameID 
+                       select new GamesWithImages{ currentGame = game, currentImage = image }).ToList();
+
+        //    List<T> gameImages = new List<T>();
+        //    gameImages = (List<T>)query;
+           return listOfGI;
+        }
     }
 }
