@@ -1,16 +1,16 @@
 General
--AJAX Call
+-AJAX Call - Alternative to Grid View in ASP
 -XML
--Login
 -Display image related to the game
+-Cart!
 
+Login
+-Create Session States
+-Show/Hide Admin Panel/Controls
 
 Admin
 -Validate Form (Regex)
--Add Image with game (Half Done, Image information added with FK)
-
-
 
 DONE
--ADD GAME + IMAGE
--POPULATE PAGE FROM DB
+-Add Image with game
+-C.R.U.D

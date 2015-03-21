@@ -11,7 +11,7 @@
                 <ItemTemplate>
                     <div class="col-md-3 col-sm-6 hero-feature">
                         <div class="thumbnail">
-                            <img src="~/GameImages/<%#:Item.currentImage.Name %>>" alt=""/>
+                            <img src="/GameImages/<%#: Item.currentImage.Name %>" alt=""/>
                             <div class="caption">
                                 <a href="/GameDetails.aspx?id=<%#: Item.currentGame.GameID %>">
 
