@@ -30,9 +30,9 @@ namespace GameStore
         public static List<GamesWithImages> JoinGamesImage([QueryString("id")] int? ItemID)
         {
             GameStoreContext cxt = new GameStoreContext();
-            List<GamesWithImages> listOfGI = ( from game in cxt.Games
-                        join image in cxt.Images on game.GameID equals image.GameID 
-                       select new GamesWithImages{ currentGame = game, currentImage = image }).ToList();
+            List<GamesWithImages> listOfGI =    ( from game in cxt.Games
+                                                join image in cxt.Images on game.GameID equals image.GameID 
+                                                select new GamesWithImages{ currentGame = game, currentImage = image }).ToList();
             if (ItemID.HasValue && ItemID > 0)
             {
                 listOfGI = listOfGI.Where(p => p.currentGame.GameID == ItemID).ToList();
