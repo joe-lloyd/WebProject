@@ -7,7 +7,13 @@
     </asp:GridView>
 
     <div class="row">
-        <h2>Edit/Delete Game</h2>
+        <h2>Add/Update/Delete Game</h2>
+        <p>Choose An Option</p>
+        <div class="form-group">
+            <asp:RadioButton GroupName="Admin" ID="rdoAdd" runat="server" Text="Add"/>
+            <asp:RadioButton GroupName="Admin" ID="rdoUpdate" runat="server" Text="Update"/>
+            <asp:RadioButton GroupName="Admin" ID="rdoDelete" runat="server" Text="Delete"/>
+        </div>
             <hr />
         <div class="col-md-6 form-vertical">
             <div class="form-group">
@@ -44,6 +50,7 @@
                 </asp:DropDownList>
             </div>
        </div>
+
        <div class="col-md-6 form-vertical">
             <div class="form-group">
                 <p><asp:Label ID="lblReleaseDate" runat="server" Text="Release Date"></asp:Label></p>
@@ -61,19 +68,15 @@
                 <p><asp:Label ID="lblDescription" runat="server" Text="Description"></asp:Label></p>
                 <asp:TextBox CssClass="form-control" ID="txtDescription" runat="server" TextMode="MultiLine"></asp:TextBox>
             </div>
+            
+            <div class="form-group">
+                <p><asp:Label ID="lblImage" runat="server" Text="Upload Image"></asp:Label></p>
+                <asp:FileUpload CssClass="form-control" ID="ImageUpload" runat="server" />
+            </div>
 
-            <asp:Button runat="server" CssClass="btn btn-default" Text="Delete Game"/>
-            <asp:Button runat="server" CssClass="btn btn-default" Text="Update Game"/>
+            <asp:Button runat="server" CssClass="btn btn-default" Text="Add Game" ID="btnAddGame" OnClick="btnAddGame_Click"/>
+            <asp:Button runat="server" CssClass="btn btn-default" Text="Delete Game" ID="btnDeleteGame" OnClick="btnDeleteGame_Click"/>
+            <asp:Button runat="server" CssClass="btn btn-default" Text="Update Game" ID="btnUpdateGame" OnClick="btnUpdateGame_Click"/>
         </div>
     </div>
-
-    <%--<asp:Label ID="lblTitle" runat="server" Text="Title"></asp:Label>
-    <asp:Label ID="lblRating" runat="server" Text="Rating"></asp:Label>
-    <asp:Label ID="lblGenre" runat="server" Text="Genre"></asp:Label>
-    <asp:Label ID="lblReleaseDate" runat="server" Text="Label"></asp:Label>
-    <asp:Label ID="lblPrice" runat="server" Text="Label"></asp:Label>
-    <asp:Label ID="lblDescription" runat="server" Text="Label"></asp:Label>
-    <asp:Button runat="server" CssClass="btn btn-default" Text="Delete Game"/>
-    <asp:Button runat="server" CssClass="btn btn-default" Text="Update Game"/>--%>
-    
 </asp:Content>

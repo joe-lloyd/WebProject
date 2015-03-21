@@ -146,7 +146,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
-    <Content Include="AddGame.aspx" />
     <Content Include="AdminPage.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
@@ -208,13 +207,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddGame.aspx.cs">
-      <DependentUpon>AddGame.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AddGame.aspx.designer.cs">
-      <DependentUpon>AddGame.aspx</DependentUpon>
-    </Compile>
     <Compile Include="AdminPage.aspx.cs">
       <DependentUpon>AdminPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
