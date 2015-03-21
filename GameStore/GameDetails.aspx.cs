@@ -16,18 +16,17 @@ namespace GameStore
 
         }
 
-        public IQueryable<Game> GetGameDetails([QueryString("id")] int? ItemID)
+        public static List<GamesWithImages> JoinGamesImage([QueryString("id")] int? ItemID)
         {
-            var _db = new GameStore.Models.GameStoreContext();
-            //Gets full list of games
-            IQueryable<Game> query = _db.Games;
-            //If the query string gives an ID run this
+            GameStoreContext cxt = new GameStoreContext();
+            List<GamesWithImages> listOfGI = (from game in cxt.Games
+                                              join image in cxt.Images on game.GameID equals image.GameID
+                                              select new GamesWithImages { currentGame = game, currentImage = image }).ToList();
             if (ItemID.HasValue && ItemID > 0)
             {
-                //query is only for one game
-                query = query.Where(p => p.GameID == ItemID);
+                listOfGI = listOfGI.Where(p => p.currentGame.GameID == ItemID).ToList();
             }
-            return query;
+            return listOfGI;
         }
     }
 }

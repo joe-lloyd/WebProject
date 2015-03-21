@@ -3,24 +3,23 @@
     <div class="container">
 
         <asp:ListView ID="GamesList"  
-                ItemType="GameStore.Models.Game" 
+                ItemType="GameStore.Models.GamesWithImages" 
                 runat="server"
-                SelectMethod="GetGameDetails">
-            
+                SelectMethod="JoinGamesImage">
         <ItemTemplate>
             <div class="row">
                 <div class="col-md-12">
-                    <h1 class="page-header"><%#: Item.Title %></h1>
+                    <h1 class="page-header"><%#: Item.currentGame.Title %></h1>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-md-8">
-                    <img class="img-responsive" src="http://web-vassets.ea.com/Assets/Resources/www/ea.com/Image/Crysis3_Screenshot_TheHunter.jpg?cb=1412974356" />
+                    <img class="img-responsive" src="/GameImages/<%#: Item.currentImage.Name %>" />
                 </div>
                 <div class="col-md-4">
-                    <h2><%#: Item.Title %></h2>
-                    <p><%#: Item.Description %></p>
+                    <h2><%#: Item.currentGame.Title %></h2>
+                    <p><%#: Item.currentGame.Description %></p>
                 </div>
             </div>
         </ItemTemplate>

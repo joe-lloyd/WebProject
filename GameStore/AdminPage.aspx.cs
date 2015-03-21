@@ -14,6 +14,15 @@ namespace GameStore
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            ImageUpload.Enabled = false;
+            txtDescription.Enabled = false;
+            txtPrice.Enabled = false;
+            txtReleaseDate.Enabled = false;
+            txtTitle.Enabled = false;
+            cboGenre.Enabled = false;
+            cboRating.Enabled = false;
+            btnDeleteGame.Enabled = false;
+            txtGameID.Enabled = false;
             btnAddGame.Enabled = false;
             btnDeleteGame.Enabled = false;
             btnUpdateGame.Enabled = false;
