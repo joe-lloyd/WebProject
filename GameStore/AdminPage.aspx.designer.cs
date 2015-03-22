@@ -49,6 +49,15 @@ namespace GameStore {
         protected global::System.Web.UI.WebControls.RadioButton rdoDelete;
         
         /// <summary>
+        /// rdoSerialize control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rdoSerialize;
+        
+        /// <summary>
         /// lblGameID control.
         /// </summary>
         /// <remarks>
@@ -218,5 +227,14 @@ namespace GameStore {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnUpdateGame;
+        
+        /// <summary>
+        /// btnSerialize control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSerialize;
     }
 }

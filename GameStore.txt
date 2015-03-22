@@ -66,3 +66,15 @@ BEGIN
 		usrPassword = @usrPassword
 END
 
+
+CREATE PROCEDURE spGetGameDetails
+	@GameID INTEGER
+AS
+BEGIN
+	SET NOCOUNT ON;
+	SELECT *
+	FROM
+		Games
+	WHERE
+		Games.GameID = @GameID
+END
