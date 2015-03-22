@@ -72,10 +72,17 @@ namespace GameStore
         {
             AdminNav.Visible = false;
             LogoutNav.Visible = false;
+
             if(Session["User"] != null)
+            {
+                LogoutNav.Visible = true;
+                LoginNav.Visible = false;
+            }
+            else if(Session["Admin"] != null)
             {
                 LoginNav.Visible = false;
                 LogoutNav.Visible = true;
+                AdminNav.Visible = true;
             }
         }
 

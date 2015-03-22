@@ -17,7 +17,10 @@ namespace GameStore
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["User"] != null || Session["Admin"] != null)
+            {
+                Response.Redirect("Default.aspx");
+            }
         }
 
         protected void btnRegister_Click(object sender, EventArgs e)
@@ -30,6 +33,8 @@ namespace GameStore
             GameStoreContext cxt = new GameStoreContext();
             cxt.Users.Add(newUser);
             cxt.SaveChanges();
+
+            Response.Write("<script language=javascript>alert('Registration Complete. You may now log in.');</script>");
         }
 
         protected void btnLogIn_Click(object sender, EventArgs e)
@@ -40,20 +45,37 @@ namespace GameStore
             user.usrPassword = PassEncrypt(txtPassword.Text);
 
             isValid = ValidiateLogReg(user);
-
+            Models.User LoggedIn = new User();
             if(isValid)
             {
-                //Not being called from DB need to interact with it in order for this to work
-                //Start here tomorrow
-                Session["User"] = txtUsrName.Text;
-                Session["Admin"] = user.IsAdmin.ToString();
-                Response.Write(Session["Admin"]);
-                //Response.Redirect("Default.aspx");
+                GameStoreContext cxt = new GameStoreContext();
+                var loggedInUser = from x in cxt.Users
+                                   where x.UserName == user.UserName
+                                   //select new { x.IsAdmin } ;
+                                   select x;
+                
+                foreach (var x in loggedInUser)
+                {
+                    LoggedIn.IsAdmin = x.IsAdmin;
+                    if (LoggedIn.IsAdmin == true)
+                    {
+                        Session["Admin"] = true;
+                        Response.Redirect("AdminPage.aspx");
+                    }
+                    else
+                    {
+                        Session["User"] = true;
+                        Response.Redirect("Default.aspx");
+                    }
+                }
+                
             }
             else
             {
                 Response.Write("<script language=javascript>alert('Invalid Login');</script>");
             }
+
+            
         }
 
 
