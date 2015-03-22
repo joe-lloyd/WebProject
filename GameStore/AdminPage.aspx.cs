@@ -1,6 +1,9 @@
 ﻿using GameStore.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -31,6 +34,7 @@ namespace GameStore
             btnAddGame.Enabled = false;
             btnDeleteGame.Enabled = false;
             btnUpdateGame.Enabled = false;
+            btnSerialize.Enabled = false;
         }
 
         public IQueryable<Game> GetGameDetails([QueryString("id")] int? ItemID)
@@ -145,6 +149,64 @@ namespace GameStore
             cboGenre.Enabled = true;
             cboRating.Enabled = true;
             btnUpdateGame.Enabled = true;
+        }
+
+        protected void rdoSerialize_CheckedChanged(object sender, EventArgs e)
+        {
+            txtGameID.Text = "";
+            ImageUpload.Enabled = false;
+            txtDescription.Enabled = false;
+            txtPrice.Enabled = false;
+            txtReleaseDate.Enabled = false;
+            txtTitle.Enabled = false;
+            cboGenre.Enabled = false;
+            cboRating.Enabled = false;
+            btnDeleteGame.Enabled = false;
+            btnSerialize.Enabled = true;
+            txtGameID.Enabled = true;
+        }
+
+        protected void btnSerialize_Click(object sender, EventArgs e)
+        {
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "/Game.xml";
+            int gameID = int.Parse(txtGameID.Text);
+            DataTable dt = GameDetails(gameID);
+            dt.TableName = "GameDetails";
+            StreamWriter sW = new StreamWriter(path);
+            dt.WriteXml(sW);
+        }
+
+        public DataTable GameDetails(int GameID)
+        {
+            string cxnString = ConfigurationManager.ConnectionStrings["GMCGames"].ConnectionString;
+            DataTable dt = null;
+            try
+            {
+                using (SqlConnection cxn = new SqlConnection(cxnString))
+                {
+                    SqlDataAdapter da = new SqlDataAdapter();
+                    dt = new DataTable();
+
+                    SqlCommand cmd = new SqlCommand("spGetGameDetails", cxn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    SqlParameter gameIDParam = new SqlParameter("@GameID", SqlDbType.Int);
+                    gameIDParam.Value = GameID;
+
+                    cmd.Parameters.Add(gameIDParam);
+
+                    cxn.Open();
+                    cmd.ExecuteNonQuery();
+                    da.SelectCommand = cmd;
+                    da.Fill(dt);
+                    cxn.Close();
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            return dt;
         }
     }
 }

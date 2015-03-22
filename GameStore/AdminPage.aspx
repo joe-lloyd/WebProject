@@ -12,6 +12,7 @@
             <asp:RadioButton GroupName="Admin" ID="rdoAdd" runat="server" AutoPostBack="True" Text="Add" OnCheckedChanged="rdoAdd_CheckedChanged"/>
             <asp:RadioButton GroupName="Admin" ID="rdoUpdate" runat="server" AutoPostBack="True" Text="Update" OnCheckedChanged="rdoUpdate_CheckedChanged"/>
             <asp:RadioButton GroupName="Admin" ID="rdoDelete" runat="server" AutoPostBack="True" Text="Delete" OnCheckedChanged="rdoDelete_CheckedChanged"/>
+            <asp:RadioButton GroupName="Admin" ID="rdoSerialize" runat="server" AutoPostBack="True" Text="Serialize" OnCheckedChanged="rdoSerialize_CheckedChanged" />
         </div>
             <hr />
         <div class="col-md-6 form-vertical">
@@ -76,6 +77,7 @@
             <asp:Button runat="server" CssClass="btn btn-default" Text="Add Game" ID="btnAddGame" OnClick="btnAddGame_Click"/>
             <asp:Button runat="server" CssClass="btn btn-default" Text="Delete Game" ID="btnDeleteGame" OnClick="btnDeleteGame_Click"/>
             <asp:Button runat="server" CssClass="btn btn-default" Text="Update Game" ID="btnUpdateGame" OnClick="btnUpdateGame_Click"/>
+            <asp:Button runat="server" CssClass="btn btn-default" Text="Serialize Game To XML" ID="btnSerialize" OnClick="btnSerialize_Click"/>
         </div>
     </div>
 </asp:Content>
