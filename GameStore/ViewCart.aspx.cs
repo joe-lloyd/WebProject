@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.ModelBinding;
+using System.Web.Providers.Entities;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -23,11 +24,12 @@ namespace GameStore
         //        listOfGI = listOfGI.Where(p => p.currentGame.GameID == ItemID).ToList();
         //    }
 
-        public static List<UsersCartItems> ItemsInCart([QueryString("id")] int? ItemID)
+        public List<UsersCartItems> ItemsInCart([QueryString("id")] int? ItemID)
         {
             List<UsersCartItems> listOfEverythingInAUsersCart = new List<UsersCartItems>();
 
-            int userID = (int)ItemID;
+            int userID = int.Parse(Session["UserID"].ToString());
+
                 GameStoreContext cxt = new GameStoreContext();
 
                 listOfEverythingInAUsersCart = (from user in cxt.Users 
