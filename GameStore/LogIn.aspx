@@ -15,7 +15,6 @@
             </div>
 
             <asp:Button CssClass="btn btn-default" ID="btnLogIn"  runat="server" Text="Log In" OnClick="btnLogIn_Click"/>
-            <asp:Label ID="lblLoginMessage" runat="server"></asp:Label>
         </div>
 
         <div class="col-md-6 form vertical">

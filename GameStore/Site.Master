@@ -54,13 +54,12 @@
                         <li><a runat="server" href="~/GameList">Games</a></li>
                         <li><a runat="server" href="~/Deals">Deals</a></li>
                     </ul>
-                    
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" id="AdminNav" href="~/AdminPage.aspx">Admin Controls</a></li>
-                                <li><a runat="server" href="~/Account/Register"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Cart</a></li>
-                                <li><a runat="server" href="~/Login">Log in/Register</a></li>
-                            </ul>
-
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a runat="server" id="AdminNav" href="~/AdminPage.aspx">Admin Controls</a></li>
+                        <li><a runat="server" href="~/Account/Register"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Cart</a></li>
+                        <li><a runat="server" id="LoginNav" href="~/Login">Log in/Register</a></li>
+                        <li><asp:LinkButton ID="LogoutNav" runat="server" OnClick="LogoutNav_Click">Log Out</asp:LinkButton></li>
+                    </ul>
                 </div>
             </div>
         </div>
