@@ -42,5 +42,41 @@ namespace GameStore
             }
             return listOfGI;
         }
+
+        protected void GamesList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void BuyNow_Click(object sender, EventArgs e)
+        {
+            GameStoreContext cxt = new GameStoreContext();
+
+            int userID = int.Parse(Session["UserID"].ToString());
+            int newCartID;
+
+            LineItem newLineItem = new LineItem();
+
+            Button btn = (Button)sender;
+            int gameID = int.Parse(btn.CommandArgument.ToString());
+
+            var myEntity = (from user in cxt.Users
+                                   join cart in cxt.Carts on user.UserID equals cart.UserID
+                                   where user.UserID == userID
+                                   select new { CartID = cart.CartID }).ToList();
+            newCartID = 0;
+            foreach (var i in myEntity)
+            {
+                newCartID = i.CartID;
+            }
+
+            newLineItem.GameID = gameID;
+            newLineItem.CartID = newCartID;
+            newLineItem.Quantity = 1;
+
+            cxt.LineItems.Add(newLineItem);
+            cxt.SaveChanges();
+
+        }
     }
 }
