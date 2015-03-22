@@ -16,6 +16,7 @@ namespace GameStore
         private const string AntiXsrfTokenKey = "__AntiXsrfToken";
         private const string AntiXsrfUserNameKey = "__AntiXsrfUserName";
         private string _antiXsrfTokenValue;
+        public int MyUserID { get; set; }
 
         protected void Page_Init(object sender, EventArgs e)
         {
@@ -79,12 +80,14 @@ namespace GameStore
                 ContactNav.Visible = true;
                 LogoutNav.Visible = true;
                 LoginNav.Visible = false;
+                MyUserID = int.Parse(Session["UserID"].ToString());
             }
             else if(Session["Admin"] != null)
             {
                 LoginNav.Visible = false;
                 LogoutNav.Visible = true;
                 AdminNav.Visible = true;
+                MyUserID = int.Parse(Session["UserID"].ToString());
             }
         }
 

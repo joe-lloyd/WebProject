@@ -10,6 +10,6 @@ namespace GameStore.Models
         public int LineItemID { get; set; }
         public int GameID { get; set; }
         public int CartID { get; set; }
-        public int Amount { get; set; }
+        public int Quantity { get; set; }
     }
 }

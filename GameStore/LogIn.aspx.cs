@@ -56,6 +56,7 @@ namespace GameStore
                 
                 foreach (var x in loggedInUser)
                 {
+                    Session["UserID"] = x.UserID;
                     LoggedIn.IsAdmin = x.IsAdmin;
                     if (LoggedIn.IsAdmin == true)
                     {
