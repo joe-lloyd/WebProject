@@ -11,7 +11,7 @@ namespace GameStore
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["User"] == null)
+            if (Session["User"] == null && Session["Admin"] == null)
             {
                 Response.Redirect("Login.aspx");
             }
