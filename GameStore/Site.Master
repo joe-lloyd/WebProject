@@ -56,7 +56,19 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li><a runat="server" id="AdminNav" href="~/AdminPage">Admin Controls</a></li>
                         <li><a runat="server" id="ContactNav" href="~/Contact">Contact Us</a></li>
-                        <li><a runat="server" href="~/ViewCart.aspx?id=<%#: MyUserID %>"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Cart</a></li>
+                        <li>
+                            <a runat="server" href="~/ViewCart.aspx?id=<%#: MyUserID %>">
+                                <asp:UpdatePanel ID="upCart" runat="server">
+                                    <ContentTemplate>
+                                        <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+                                        <asp:Label  runat="server" ID="CartLabel" Text="Cart"></asp:Label>
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
+
+                            </a>
+
+                        </li>
+                        
                         <li><a runat="server" id="LoginNav" href="~/Login">Log in/Register</a></li>
                         <li><asp:LinkButton id="LogoutNav" runat="server" OnClick="LogoutNav_Click" CausesValidation="False">Log Out</asp:LinkButton></li>
                     </ul>

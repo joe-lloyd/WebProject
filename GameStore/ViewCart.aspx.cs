@@ -12,6 +12,8 @@ namespace GameStore
 {
     public partial class ViewCart : System.Web.UI.Page
     {
+        public int tottalItems;
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -30,18 +32,39 @@ namespace GameStore
 
             int userID = int.Parse(Session["UserID"].ToString());
 
-                GameStoreContext cxt = new GameStoreContext();
+            GameStoreContext cxt = new GameStoreContext();
 
-                listOfEverythingInAUsersCart = (from user in cxt.Users 
-                                                join cart in cxt.Carts on user.UserID equals cart.UserID
-                                                join lineItem in cxt.LineItems on cart.CartID equals lineItem.CartID
-                                                join game in cxt.Games on lineItem.GameID equals game.GameID
-                                                join img in cxt.Images on game.GameID equals img.GameID
-                                                where user.UserID == userID
-                                                select new UsersCartItems { currentUser = user, currentCart = cart, currentLineItems = lineItem, currentGames = game, currentImg = img }).ToList();
+            listOfEverythingInAUsersCart = (from user in cxt.Users 
+                                            join cart in cxt.Carts on user.UserID equals cart.UserID
+                                            join lineItem in cxt.LineItems on cart.CartID equals lineItem.CartID
+                                            join game in cxt.Games on lineItem.GameID equals game.GameID
+                                            join img in cxt.Images on game.GameID equals img.GameID
+                                            where user.UserID == userID
+                                            select new UsersCartItems { currentUser = user, currentCart = cart, currentLineItems = lineItem, currentGames = game, currentImg = img }).ToList();
+
+            tottalItems = listOfEverythingInAUsersCart.Count();
+
+            return listOfEverythingInAUsersCart;
             
-                return listOfEverythingInAUsersCart;
-            
+        }
+
+        public void TestCartValue()
+        {
+            List<UsersCartItems> listOfEverythingInAUsersCart = new List<UsersCartItems>();
+
+            int userID = int.Parse(Session["UserID"].ToString());
+
+            GameStoreContext cxt = new GameStoreContext();
+
+            listOfEverythingInAUsersCart = (from user in cxt.Users
+                                            join cart in cxt.Carts on user.UserID equals cart.UserID
+                                            join lineItem in cxt.LineItems on cart.CartID equals lineItem.CartID
+                                            join game in cxt.Games on lineItem.GameID equals game.GameID
+                                            join img in cxt.Images on game.GameID equals img.GameID
+                                            where user.UserID == userID
+                                            select new UsersCartItems { currentUser = user, currentCart = cart, currentLineItems = lineItem, currentGames = game, currentImg = img }).ToList();
+
+            tottalItems = listOfEverythingInAUsersCart.Count();
         }
     }
 }

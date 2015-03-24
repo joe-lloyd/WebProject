@@ -40,6 +40,8 @@ namespace GameStore
         protected void BuyNow_Click(object sender, EventArgs e)
         {
             GameStoreContext cxt = new GameStoreContext();
+            ViewCart vc = new ViewCart();
+            SiteMaster sm = new SiteMaster();
 
             int userID = int.Parse(Session["UserID"].ToString());
             int newCartID;
@@ -66,6 +68,9 @@ namespace GameStore
 
             cxt.LineItems.Add(newLineItem);
             cxt.SaveChanges();
+
+            vc.TestCartValue();
+            int items = vc.tottalItems;
         }
     }
 }
