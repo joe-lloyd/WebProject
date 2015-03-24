@@ -59,7 +59,7 @@
                         <li><a runat="server" id="ContactNav" href="~/Contact">Contact Us</a></li>
                         <li>
                             <a runat="server" href="~/ViewCart.aspx?id=<%#: MyUserID %>">
-                                <asp:UpdatePanel ID="upCart" runat="server">
+                                <asp:UpdatePanel ID="upCart" runat="server" UpdateMode="Always">
                                     <ContentTemplate>
                                         <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
                                         <asp:Label  runat="server" ID="CartLabel" Text="Cart"></asp:Label>

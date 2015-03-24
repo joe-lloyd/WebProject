@@ -3,6 +3,14 @@
 
     <div class="container">
         <h1>Your Cart</h1>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <asp:Label ID="lblTotal" runat="server" Text="Total: "></asp:Label>
+                    <asp:Button ID="Buy" runat="server" AutoPostBack="True" CssClass="btn btn-inverse" Text="Purchase" OnClick="Buy_Click" />
+                </div>
+            </div>
+        </div>
         <asp:ListView ID="ListView1"  
             ItemType="GameStore.Models.UsersCartItems" 
             runat="server"
