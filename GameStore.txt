@@ -56,7 +56,7 @@ VALUES	('World OF Warcraft', 'MMO', 'World of Warcraft is a massively multiplaye
 
 CREATE PROCEDURE spValidateUser
 	@UserName NVARCHAR(50),
-	@usrPassword NVARCHAR(50)
+	@usrPassword NVARCHAR(100)
 AS
 BEGIN
 	SELECT * FROM dbo.Users

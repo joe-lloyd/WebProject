@@ -87,7 +87,6 @@ namespace GameStore
                         Response.Redirect("Default.aspx");
                     }
                 }
-                
             }
             else
             {
@@ -111,7 +110,6 @@ namespace GameStore
             return encryptedPassword.ToString();
         }
 
-        //Refactor Later//
         private bool ValidiateLogReg(Models.User user)
         {
             bool isValid;
@@ -124,7 +122,7 @@ namespace GameStore
                 SqlParameter userNameParam = new SqlParameter("@UserName", SqlDbType.NVarChar, 50);
                 userNameParam.Value = user.UserName;
 
-                SqlParameter passwordParam = new SqlParameter("@usrPassword", SqlDbType.NVarChar, 50);
+                SqlParameter passwordParam = new SqlParameter("@usrPassword", SqlDbType.NVarChar, 100);
                 passwordParam.Value = user.usrPassword;
 
                 cmd.Parameters.Add(userNameParam);
