@@ -13,7 +13,7 @@ ReleaseDate DATE
 CREATE TABLE LineItems
 (
 LineItemID INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
-GameID INT FOREIGN KEY REFERENCES Games(GameID),
+GameID INT FOREIGN KEY REFERENCES Games(GameID) ON DELETE CASCADE,
 CartID INT FOREIGN KEY REFERENCES Carts(CartID),
 Quantity INT
 )
@@ -29,7 +29,7 @@ CREATE TABLE Users
 [UserID] [int] IDENTITY(1,1) PRIMARY KEY NOT NULL,
 [UserName] [nvarchar](15) NOT NULL,
 [Email] [nvarchar](70) NOT NULL,
-[usrPass] [nvarchar](100) NOT NULL,
+[usrPassword] [nvarchar](100) NOT NULL,
 [IsAdmin] [bit] NULL
 )
 
