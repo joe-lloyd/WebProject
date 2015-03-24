@@ -76,6 +76,15 @@ namespace GameStore {
         protected global::System.Web.UI.WebControls.TextBox txtGameID;
         
         /// <summary>
+        /// valGameID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valGameID;
+        
+        /// <summary>
         /// lblTitle control.
         /// </summary>
         /// <remarks>
@@ -92,6 +101,15 @@ namespace GameStore {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTitle;
+        
+        /// <summary>
+        /// valTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valTitle;
         
         /// <summary>
         /// lblRating control.
@@ -148,6 +166,24 @@ namespace GameStore {
         protected global::System.Web.UI.WebControls.TextBox txtReleaseDate;
         
         /// <summary>
+        /// valReleaseDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valReleaseDate;
+        
+        /// <summary>
+        /// regexDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator regexDate;
+        
+        /// <summary>
         /// lblPrice control.
         /// </summary>
         /// <remarks>
@@ -164,6 +200,24 @@ namespace GameStore {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPrice;
+        
+        /// <summary>
+        /// valPrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valPrice;
+        
+        /// <summary>
+        /// regexPrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator regexPrice;
         
         /// <summary>
         /// lblDescription control.
@@ -184,6 +238,15 @@ namespace GameStore {
         protected global::System.Web.UI.WebControls.TextBox txtDescription;
         
         /// <summary>
+        /// valDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valDescription;
+        
+        /// <summary>
         /// lblImage control.
         /// </summary>
         /// <remarks>
@@ -200,6 +263,15 @@ namespace GameStore {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload ImageUpload;
+        
+        /// <summary>
+        /// valImageUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valImageUpload;
         
         /// <summary>
         /// btnAddGame control.
