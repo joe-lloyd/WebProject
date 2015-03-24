@@ -23,19 +23,23 @@
             <div class="form-group">
                 <p><asp:Label ID="lblEmail" runat="server" Text="Email"></asp:Label></p>
                 <asp:TextBox CssClass="form-control" ID="txtEmail" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="valEmail" ValidationGroup="ValidateReg" ControlToValidate="txtEmail" ForeColor="Red" runat="server" ErrorMessage="Email is Required"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="regexEmail" runat="server" ValidationGroup="ValidateReg" ControlToValidate="txtEmail" ValidationExpression="\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b" ErrorMessage="Invalid Email" ForeColor="Red"></asp:RegularExpressionValidator>
             </div>
 
             <div class="form-group">
                 <p><asp:Label ID="lblRegUserName" runat="server" Text="Choose A User Name"></asp:Label></p>
                 <asp:TextBox CssClass="form-control" ID="txtRegUserName" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="valRegUserName" ValidationGroup="ValidateReg" ControlToValidate="txtRegUserName" ForeColor="Red" runat="server" ErrorMessage="User Name is Required"></asp:RequiredFieldValidator>
             </div>
 
             <div class="form-group">
                 <p><asp:Label ID="lblRegPassword" runat="server" Text="Choose A Password"></asp:Label></p>
                 <asp:TextBox CssClass="form-control" ID="txtRegPassword" runat="server" TextMode="Password"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="valRegPassword" ValidationGroup="ValidateReg" ControlToValidate="txtRegPassword" runat="server" ForeColor="Red" ErrorMessage="Password is Required"></asp:RequiredFieldValidator>
             </div>
 
-            <asp:Button CssClass="btn btn-default" ID="btnRegister"  runat="server" Text="Register" OnClick="btnRegister_Click"/>
+            <asp:Button CssClass="btn btn-default" ID="btnRegister" ValidationGroup="ValidateReg" runat="server" Text="Register" OnClick="btnRegister_Click"/>
         </div>
     </div>
 </asp:Content>
