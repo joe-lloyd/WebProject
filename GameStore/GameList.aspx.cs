@@ -19,17 +19,6 @@ namespace GameStore
             }
         }
 
-        //public IQueryable<Game> GetGames([QueryString("id")] int? ItemID)
-        //{
-        //    var _db = new GameStore.Models.GameStoreContext();
-        //    IQueryable<Game> query = _db.Games;
-        //    if (ItemID.HasValue && ItemID > 0)
-        //    {
-        //        query = query.Where(p => p.GameID == ItemID);
-        //    }
-        //    return query;
-        //}
-
         public static List<GamesWithImages> JoinGamesImage([QueryString("id")] int? ItemID)
         {
             GameStoreContext cxt = new GameStoreContext();
@@ -63,9 +52,10 @@ namespace GameStore
             int gameID = int.Parse(btn.CommandArgument.ToString());
 
             var myEntity = (from user in cxt.Users
-                                   join cart in cxt.Carts on user.UserID equals cart.UserID
-                                   where user.UserID == userID
-                                   select new { CartID = cart.CartID }).ToList();
+                            join cart in cxt.Carts on user.UserID equals cart.UserID
+                            where user.UserID == userID
+                            select new { CartID = cart.CartID }).ToList();
+            
             newCartID = 0;
             foreach (var i in myEntity)
             {

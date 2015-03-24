@@ -19,11 +19,13 @@
             <div class="form-group">
                 <p><asp:Label ID="lblGameID" runat="server" Text="Game ID"></asp:Label></p>
                 <asp:TextBox CssClass="form-control" ID="txtGameID" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="valGameID" runat="server" ControlToValidate="txtGameID" ErrorMessage="GameID is Required" ForeColor="Red"></asp:RequiredFieldValidator>
             </div>
 
             <div class="form-group">
                 <p><asp:Label ID="lblTitle" runat="server" Text="Title"></asp:Label></p>
                 <asp:TextBox CssClass="form-control" ID="txtTitle" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="valTitle" ControlToValidate="txtTitle" runat="server" ErrorMessage="Title Is Required" ForeColor="Red"></asp:RequiredFieldValidator>
             </div>
 
             <div class="form-group">
@@ -55,21 +57,30 @@
             <div class="form-group">
                 <p><asp:Label ID="lblReleaseDate" runat="server" Text="Release Date"></asp:Label></p>
                 <asp:TextBox CssClass="form-control" ID="txtReleaseDate" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="valReleaseDate" ControlToValidate="txtReleaseDate" runat="server" ErrorMessage="Release Date Is Required" ForeColor="Red">
+                </asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ControlToValidate="txtReleaseDate" ValidationExpression="^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[1,3-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$" 
+                    ID="regexDate" runat="server" ErrorMessage="Date Must be In format DD/MM/YYYY" ForeColor="Red"></asp:RegularExpressionValidator>
             </div>
         
             <div class="form-group">
                 <p><asp:Label ID="lblPrice" runat="server" Text="Price"></asp:Label></p>
                 <asp:TextBox CssClass="form-control" ID="txtPrice" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="valPrice" ControlToValidate="txtPrice" runat="server" ErrorMessage="Price Is Required" ForeColor="Red"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="regexPrice" runat="server" ValidationExpression="^(?!\.?$)\d{0,6}(\.\d{0,2})?$"
+                    ControlToValidate="txtPrice" ErrorMessage="Price Must be in format xxx.xx or xx.xx" ForeColor="Red"></asp:RegularExpressionValidator>
             </div>
 
             <div class="form-group">
                 <p><asp:Label ID="lblDescription" runat="server" Text="Description"></asp:Label></p>
                 <asp:TextBox CssClass="form-control" ID="txtDescription" runat="server" TextMode="MultiLine"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="valDescription" ControlToValidate="txtDescription" runat="server" ErrorMessage="Description Is Required" ForeColor="Red"></asp:RequiredFieldValidator>
             </div>
             
             <div class="form-group">
                 <p><asp:Label ID="lblImage" runat="server" Text="Upload Image"></asp:Label></p>
                 <asp:FileUpload CssClass="form-control" ID="ImageUpload" runat="server" />
+                <asp:RequiredFieldValidator ID="valImageUpload" ControlToValidate="ImageUpload" runat="server" ErrorMessage="You must upload an image" ForeColor="Red"></asp:RequiredFieldValidator>
             </div>
 
             <asp:Button runat="server" CssClass="btn btn-default" Text="Add Game" ID="btnAddGame" OnClick="btnAddGame_Click"/>

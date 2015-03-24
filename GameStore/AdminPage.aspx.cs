@@ -35,6 +35,14 @@ namespace GameStore
             btnDeleteGame.Enabled = false;
             btnUpdateGame.Enabled = false;
             btnSerialize.Enabled = false;
+
+            //All Validators Enabled by Defualt
+            valDescription.Enabled = true;
+            valReleaseDate.Enabled = true;
+            valTitle.Enabled = true;
+            valImageUpload.Enabled = true;
+            valPrice.Enabled = true;
+            valGameID.Enabled = true;
         }
 
         public IQueryable<Game> GetGameDetails([QueryString("id")] int? ItemID)
@@ -112,7 +120,16 @@ namespace GameStore
 
         protected void rdoDelete_CheckedChanged(object sender, EventArgs e)
         {
-            txtGameID.Text = "";
+            ResetTextboxes();
+
+            valTitle.Enabled = false;
+            valReleaseDate.Enabled = false;
+            regexDate.Enabled = false;
+            valPrice.Enabled = false;
+            regexPrice.Enabled = false;
+            valDescription.Enabled = false;
+            valImageUpload.Enabled = false;
+
             ImageUpload.Enabled = false;
             txtDescription.Enabled = false;
             txtPrice.Enabled = false;
@@ -126,7 +143,10 @@ namespace GameStore
 
         protected void rdoAdd_CheckedChanged(object sender, EventArgs e)
         {
-            txtGameID.Text = "";
+            valGameID.Enabled = false;
+
+            ResetTextboxes();
+
             txtGameID.Enabled = false;
             ImageUpload.Enabled = true;
             txtDescription.Enabled = true;
@@ -140,6 +160,9 @@ namespace GameStore
 
         protected void rdoUpdate_CheckedChanged(object sender, EventArgs e)
         {
+            ResetTextboxes();
+
+            valImageUpload.Enabled = false;
             txtGameID.Enabled = true;
             ImageUpload.Enabled = false;
             txtDescription.Enabled = true;
@@ -153,7 +176,16 @@ namespace GameStore
 
         protected void rdoSerialize_CheckedChanged(object sender, EventArgs e)
         {
-            txtGameID.Text = "";
+            ResetTextboxes();
+
+            valTitle.Enabled = false;
+            valReleaseDate.Enabled = false;
+            regexDate.Enabled = false;
+            valPrice.Enabled = false;
+            regexPrice.Enabled = false;
+            valDescription.Enabled = false;
+            valImageUpload.Enabled = false;
+
             ImageUpload.Enabled = false;
             txtDescription.Enabled = false;
             txtPrice.Enabled = false;
@@ -207,6 +239,19 @@ namespace GameStore
                 throw ex;
             }
             return dt;
+        }
+
+        private void ResetTextboxes()
+        {
+            txtGameID.Text = "";
+            txtDescription.Text = "";
+            txtPrice.Text = "";
+            txtReleaseDate.Text = "";
+            txtTitle.Text = "";
+            if(ImageUpload.HasFile)
+            {
+                ImageUpload.Attributes.Clear();
+            }
         }
     }
 }
