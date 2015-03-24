@@ -85,7 +85,6 @@ namespace GameStore
                 MyUserID = int.Parse(Session["UserID"].ToString());
 
                 vc.TestCartValue();
-
                 CartLabel.Text = "Cart ("+ vc.tottalItems.ToString()+")";
             }
             else if(Session["Admin"] != null)
@@ -96,7 +95,6 @@ namespace GameStore
                 MyUserID = int.Parse(Session["UserID"].ToString());
 
                 vc.TestCartValue();
-
                 CartLabel.Text = "Cart ("+vc.tottalItems.ToString()+")";
             }
         }

@@ -32,6 +32,13 @@ namespace GameStore
             
             GameStoreContext cxt = new GameStoreContext();
 
+            Models.Cart newCart = new Cart();
+            newCart.UserID = newUser.UserID;
+
+            cxt.Carts.Add(newCart);
+            cxt.SaveChanges();
+
+            Response.Write("<script language=javascript>alert('Registration Complete. You may now log in.');</script>");
             User checkUser = (from x in cxt.Users
                               where x.Email == newUser.Email
                               select x).FirstOrDefault();
