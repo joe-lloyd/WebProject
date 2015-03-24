@@ -75,12 +75,18 @@ namespace GameStore
             LogoutNav.Visible = false;
             ContactNav.Visible = false;
 
+            ViewCart vc = new ViewCart();
+
             if(Session["User"] != null)
             {
                 ContactNav.Visible = true;
                 LogoutNav.Visible = true;
                 LoginNav.Visible = false;
                 MyUserID = int.Parse(Session["UserID"].ToString());
+
+                vc.TestCartValue();
+
+                CartLabel.Text = "Cart ("+ vc.tottalItems.ToString()+")";
             }
             else if(Session["Admin"] != null)
             {
@@ -88,6 +94,10 @@ namespace GameStore
                 LogoutNav.Visible = true;
                 AdminNav.Visible = true;
                 MyUserID = int.Parse(Session["UserID"].ToString());
+
+                vc.TestCartValue();
+
+                CartLabel.Text = "Cart ("+vc.tottalItems.ToString()+")";
             }
         }
 
