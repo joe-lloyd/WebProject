@@ -32,12 +32,6 @@ namespace GameStore
             
             GameStoreContext cxt = new GameStoreContext();
 
-            Models.Cart newCart = new Cart();
-            newCart.UserID = newUser.UserID;
-
-            cxt.Carts.Add(newCart);
-            cxt.SaveChanges();
-
             Response.Write("<script language=javascript>alert('Registration Complete. You may now log in.');</script>");
             User checkUser = (from x in cxt.Users
                               where x.Email == newUser.Email
@@ -51,6 +45,13 @@ namespace GameStore
             {
                 cxt.Users.Add(newUser);
                 cxt.SaveChanges();
+
+                Models.Cart newCart = new Cart();
+                newCart.UserID = newUser.UserID;
+
+                cxt.Carts.Add(newCart);
+                cxt.SaveChanges();
+
                 Response.Write("<script language=javascript>alert('Registration Complete. You may now log in.');</script>");
             }
         }
@@ -87,6 +88,7 @@ namespace GameStore
                         Response.Redirect("Default.aspx");
                     }
                 }
+                
             }
             else
             {
@@ -110,6 +112,7 @@ namespace GameStore
             return encryptedPassword.ToString();
         }
 
+        //Refactor Later//
         private bool ValidiateLogReg(Models.User user)
         {
             bool isValid;
@@ -122,7 +125,7 @@ namespace GameStore
                 SqlParameter userNameParam = new SqlParameter("@UserName", SqlDbType.NVarChar, 50);
                 userNameParam.Value = user.UserName;
 
-                SqlParameter passwordParam = new SqlParameter("@usrPassword", SqlDbType.NVarChar, 100);
+                SqlParameter passwordParam = new SqlParameter("@usrPassword", SqlDbType.NVarChar, 50);
                 passwordParam.Value = user.usrPassword;
 
                 cmd.Parameters.Add(userNameParam);
