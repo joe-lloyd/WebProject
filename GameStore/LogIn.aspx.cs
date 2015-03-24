@@ -31,8 +31,6 @@ namespace GameStore
             newUser.usrPassword = PassEncrypt(txtRegPassword.Text);
             
             GameStoreContext cxt = new GameStoreContext();
-            cxt.Users.Add(newUser);
-            cxt.SaveChanges();
 
             Models.Cart newCart = new Cart();
             newCart.UserID = newUser.UserID;
@@ -41,6 +39,20 @@ namespace GameStore
             cxt.SaveChanges();
 
             Response.Write("<script language=javascript>alert('Registration Complete. You may now log in.');</script>");
+            User checkUser = (from x in cxt.Users
+                              where x.Email == newUser.Email
+                              select x).FirstOrDefault();
+
+            if(checkUser != null)
+            {
+                Response.Write("<script language=javascript>alert('Registration Failed. Email already exists');</script>");
+            }
+            else
+            {
+                cxt.Users.Add(newUser);
+                cxt.SaveChanges();
+                Response.Write("<script language=javascript>alert('Registration Complete. You may now log in.');</script>");
+            }
         }
 
         protected void btnLogIn_Click(object sender, EventArgs e)

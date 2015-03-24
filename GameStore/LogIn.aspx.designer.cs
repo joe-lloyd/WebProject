@@ -76,6 +76,24 @@ namespace GameStore {
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
         
         /// <summary>
+        /// valEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valEmail;
+        
+        /// <summary>
+        /// regexEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator regexEmail;
+        
+        /// <summary>
         /// lblRegUserName control.
         /// </summary>
         /// <remarks>
@@ -94,6 +112,15 @@ namespace GameStore {
         protected global::System.Web.UI.WebControls.TextBox txtRegUserName;
         
         /// <summary>
+        /// valRegUserName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valRegUserName;
+        
+        /// <summary>
         /// lblRegPassword control.
         /// </summary>
         /// <remarks>
@@ -110,6 +137,15 @@ namespace GameStore {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtRegPassword;
+        
+        /// <summary>
+        /// valRegPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valRegPassword;
         
         /// <summary>
         /// btnRegister control.

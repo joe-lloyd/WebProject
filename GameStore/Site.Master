@@ -13,7 +13,6 @@
     </asp:PlaceHolder>
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-
 </head>
 <body>
     <form runat="server">
@@ -71,7 +70,7 @@
                         </li>
                         
                         <li><a runat="server" id="LoginNav" href="~/Login">Log in/Register</a></li>
-                        <li><asp:LinkButton id="LogoutNav" runat="server" OnClick="LogoutNav_Click">Log Out</asp:LinkButton></li>
+                        <li><asp:LinkButton id="LogoutNav" runat="server" OnClick="LogoutNav_Click" CausesValidation="False">Log Out</asp:LinkButton></li>
                     </ul>
                 </div>
             </div>
