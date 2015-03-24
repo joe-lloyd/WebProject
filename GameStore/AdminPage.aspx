@@ -56,7 +56,6 @@
                 <p><asp:Label ID="lblReleaseDate" runat="server" Text="Release Date"></asp:Label></p>
                 <asp:TextBox CssClass="form-control" ID="txtReleaseDate" runat="server"></asp:TextBox>
             </div>
-      
         
             <div class="form-group">
                 <p><asp:Label ID="lblPrice" runat="server" Text="Price"></asp:Label></p>
