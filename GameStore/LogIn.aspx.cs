@@ -32,7 +32,6 @@ namespace GameStore
             
             GameStoreContext cxt = new GameStoreContext();
 
-            Response.Write("<script language=javascript>alert('Registration Complete. You may now log in.');</script>");
             User checkUser = (from x in cxt.Users
                               where x.Email == newUser.Email
                               select x).FirstOrDefault();
@@ -64,13 +63,13 @@ namespace GameStore
             user.usrPassword = PassEncrypt(txtPassword.Text);
 
             isValid = ValidiateLogReg(user);
+            
             Models.User LoggedIn = new User();
             if(isValid)
             {
                 GameStoreContext cxt = new GameStoreContext();
                 var loggedInUser = from x in cxt.Users
                                    where x.UserName == user.UserName
-                                   //select new { x.IsAdmin } ;
                                    select x;
                 
                 foreach (var x in loggedInUser)
@@ -88,7 +87,6 @@ namespace GameStore
                         Response.Redirect("Default.aspx");
                     }
                 }
-                
             }
             else
             {
@@ -111,8 +109,6 @@ namespace GameStore
             }
             return encryptedPassword.ToString();
         }
-
-        //Refactor Later//
         private bool ValidiateLogReg(Models.User user)
         {
             bool isValid;
@@ -125,7 +121,7 @@ namespace GameStore
                 SqlParameter userNameParam = new SqlParameter("@UserName", SqlDbType.NVarChar, 50);
                 userNameParam.Value = user.UserName;
 
-                SqlParameter passwordParam = new SqlParameter("@usrPassword", SqlDbType.NVarChar, 50);
+                SqlParameter passwordParam = new SqlParameter("@usrPassword", SqlDbType.NVarChar, 100);
                 passwordParam.Value = user.usrPassword;
 
                 cmd.Parameters.Add(userNameParam);
