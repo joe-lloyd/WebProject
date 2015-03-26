@@ -6,6 +6,9 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="This is GMC games, login and purchase games for pc.">
+    <meta name="keywords" content="games, pc, online, store, GMC">
+    <meta name="author" content="Joseph Lloyd, Gary McNeil">
     <title><%: Page.Title %> - GMC GAMES</title>
 
     <asp:PlaceHolder runat="server">
