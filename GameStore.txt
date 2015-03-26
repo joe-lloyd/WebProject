@@ -42,15 +42,24 @@ Description NVARCHAR(70)
 )
 
 INSERT INTO Games(Title, Genre, Description, Rating, Price, ReleaseDate)
-VALUES	('World OF Warcraft', 'MMO', 'World of Warcraft is a massively multiplayer online role-playing game created in 2004 by Blizzard Entertainment. It is the fourth released game set in the fantasy Warcraft universe, which was first introduced by Warcraft: Orcs & Humans in 1994', 13, 49.99, '20120618'),
-		('Battle Toads', 'platformer', 'Battletoads is a video game media franchise by Rare that began with the original beat em up game Battletoads in 1991. Starring three anthropomorphic toads named after skin conditions, Rash, Zitz, and Pimple, the series was created to rival the Teenage Mutant Ninja Turtles games. The series as a whole has been quite popular with five installments up to this date and at its apex spawned an animated television pilot.', 3, 59.99, '20120618'),
-		('Tony Hawks Pro Skater', 'Sports', 'Tony Hawks Pro Skater, released as Tony Hawks Skateboarding in Australia, New Zealand and parts of Europe, is a skateboarding video game developed by Neversoft.', 12, 59.99, '20150222'),
-		('Abes Odyssey', 'Adventure', 'Oddworld: Abes Oddysee is a platform video game developed by Oddworld Inhabitants and published by GT Interactive. It was released in 1997 for the PlayStation video game console, DOS and Microsoft Windows in North America, Australia and Europe. The game was released under the title Abe a GoGo in Japan for the PlayStation by publisher SoftBank, with a PC version following in 2001. The Game Boy port of Abes Oddysee, retitled as Oddworld Adventures, was developed by Saffire Corporation and published by GT Interactive in 1998.',12,39.99, '19900101'),
-		('World OF Warcraft', 'MMO', 'World of Warcraft is a massively multiplayer online role-playing game created in 2004 by Blizzard Entertainment. It is the fourth released game set in the fantasy Warcraft universe, which was first introduced by Warcraft: Orcs & Humans in 1994', 13, 49.99, '20120618'),
-		('Battle Toads', 'platformer', 'Battletoads is a video game media franchise by Rare that began with the original beat em up game Battletoads in 1991. Starring three anthropomorphic toads named after skin conditions, Rash, Zitz, and Pimple, the series was created to rival the Teenage Mutant Ninja Turtles games. The series as a whole has been quite popular with five installments up to this date and at its apex spawned an animated television pilot.', 3, 59.99, '20120618'),
-		('Tony Hawks Pro Skater', 'Sports', 'Tony Hawks Pro Skater, released as Tony Hawks Skateboarding in Australia, New Zealand and parts of Europe, is a skateboarding video game developed by Neversoft.', 12, 59.99, '20150222'),
-		('Abes Odyssey', 'Adventure', 'Oddworld: Abes Oddysee is a platform video game developed by Oddworld Inhabitants and published by GT Interactive. It was released in 1997 for the PlayStation video game console, DOS and Microsoft Windows in North America, Australia and Europe. The game was released under the title Abe a GoGo in Japan for the PlayStation by publisher SoftBank, with a PC version following in 2001. The Game Boy port of Abes Oddysee, retitled as Oddworld Adventures, was developed by Saffire Corporation and published by GT Interactive in 1998.',12,39.99, '19900101')
-
+VALUES	('World of Warcraft', 'MMO', 'World of Warcraft is a massively multiplayer online role-playing game created in 2004 by Blizzard Entertainment. It is the fourth released game set in the fantasy Warcraft universe, which was first introduced by Warcraft: Orcs & Humans in 1994', 13, 49.99, '20120618'),
+		('Call of Duty', 'FPS', 'Call of Duty (commonly shortened to CoD) is a first-person video game franchise. The series began on the PC, and later expanded to consoles and handhelds. Several spin-off games have also been released. The earlier games in the series are set primarily in World War II, including Call of Duty, Call of Duty 2, and Call of Duty 3. Beginning with Call of Duty 4: Modern Warfare, which is set in modern times, the series has shifted focus away from World War II.', 18, 59.99, '20120618'),
+		('Fallout 3', 'Adventure', 'Fallout 3 is an action role-playing open world video game developed by Bethesda Game Studios, and is the third major installment in the Fallout series.', 12, 59.99, '20150222'),
+		('Final Fantasy IX', 'Adventure', 'Final Fantasy IX takes place primarily on the four continents of a world named Gaia (homonymous with Final Fantasy VIIs Gaia, but not the same world). Most of Gaias population reside on the Mist Continent, named so because the entire continent is blanketed in thick Mist. Lands outside the Mist Continent—the Outer, Lost and Forgotten continents—are uncharted territories not explored until midway through the game. Several locations on the parallel world of Terra and the dream land of Memoria round out the games areas.',12,39.99, '19900101'),
+		('Grand Theft Auto V', 'Action', 'Grand Theft Auto V is an open world, action-adventure video game developed by Rockstar North and published by Rockstar Games. It was released on 17 September 2013 for the PlayStation 3 and Xbox 360.', 13, 49.99, '20120618'),
+		('Halo', 'FPS', 'Halo is a best-selling military science fiction first-person shooter video game franchise created by Bungie and now managed and developed by 343 Industries, a subsidiary of Microsoft Studios.', 3, 59.99, '20120611'),
+		('Mortal Kombat', 'Fighter', 'Mortal Kombat is a video game franchise developed by Midway Games Chicago studio. In 2011, following Midways bankruptcy, the Mortal Kombat development team was acquired by Warner Brothers, and turned into NetherRealm Studios.', 3, 49.99, '20000612'),
+		('Resident Evil 6', 'Survival Horror', 'Resident Evil 6, known as Biohazard 6 in Japan, is an action-adventure third-person shooter video game and the ninth installment in the Resident Evil series, developed and published by Capcom.', 3, 39.99, '20150613')
+		
+INSERT INTO Images(GameID, Name, Description)
+VALUES	(1,'wow.png', 'wow game image'),
+		(2,'cod.jpg', 'cod game image'),
+		(3,'fallout3.jpg', 'fallout 3 game image'),
+		(4,'ff9.jpg', 'finalfantasy game image'),
+		(5,'gta.jpeg', 'gta game image'),
+		(6,'halo.jpg', 'halo game image'),
+		(7,'mk.jpg', 'mk game image'),
+		(8,'re6.jpg', 're6 game image')
 
 *****Stored Procedures******
 
