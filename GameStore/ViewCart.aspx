@@ -2,10 +2,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="container">
-        <h1>Your Cart</h1>
         <div class="row">
             <div class="col-md-12">
-                <div class="panel panel-default">
+                <div class="jumbotron">
+                    <h1>Your Cart</h1>
                     <asp:Label ID="lblTotal" runat="server" Text="Total: "></asp:Label>
                     <asp:Button ID="Buy" runat="server" AutoPostBack="True" CssClass="btn btn-inverse" Text="Purchase" OnClick="Buy_Click" />
                 </div>
